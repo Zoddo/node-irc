@@ -367,6 +367,15 @@ Events
     Emitted when a user changes nick along with the channels the user is in.
     See the `raw` event for details on the `message` object.
 
+.. js:data:: 'account'
+
+    `function (nick, account, channels, message) { }`
+
+    Emitted when a user with common channels has been identified to network services.
+	`account` can be empty if the user has been logged out.
+	The network must support the `account-notify` capability.
+    See the `raw` event for details on the `message` object.
+
 .. js:data:: 'invite'
 
     `function (channel, from, message) { }`
@@ -525,6 +534,10 @@ Internal
 .. js:data:: Client.chans
 
     Channels joined. Includes channel modes, user list, and topic information. Only updated *after* the server recognizes the join.
+
+.. js:data:: Client.users
+
+    Known users. Includes username, hostname, realname, channel list, and account name.
 
 .. js:data:: Client.nick
 
